@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androidcomposebeginner.ui.theme.AndroidComposeBeginnerTheme
 
-class MainActivity : ComponentActivity() {
+class RowActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    RowComponent(modifier = Modifier.fillMaxSize())
                 }
             }
         }
@@ -33,17 +34,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun RowComponent(modifier: Modifier = Modifier) {
+    Row (modifier = modifier){
+        Text(text = "No")
+        Text(text = "Name")
+        Text(text = "Age")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun RowPreview() {
     AndroidComposeBeginnerTheme {
-        Greeting("Android")
+        RowComponent(modifier = Modifier.fillMaxSize())
     }
 }
